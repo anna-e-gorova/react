@@ -9,10 +9,7 @@ export const Router = () => {
     <BrowserRouter>
     <Link to="/" >HOME</Link>
       <Switch>
-        <Route
-          path="/profile"
-          render={(data) => <Profile match={data.match} />}
-        ></Route>
+        <Route path="/profile"> <Profile /></Route>
         <Route path="/chats/:chatId?/:chatDel?"><Chats /></Route>
         <Route path="/chats/:chatId?"><Chats /></Route>
         <Route exact path="/" ><HomePage /></Route>

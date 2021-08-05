@@ -5,9 +5,7 @@ import { Form } from "../Form";
 import { AUTHORS } from "../../constants";
 import { ChatList } from "../ChatList";
 import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
 import { Button } from "@material-ui/core";
-import { func } from "prop-types";
 
 
 let initialChats = {
@@ -26,22 +24,9 @@ let initialChats = {
   chat3: { name: "Chat 3", id: "chat3", messages: [] },
 };
 
-export function Remchat (e) {
-  //console.log(e);
-  //initialChats = {};
-}
-
-
-
 function Chats() {
-  const { chatId, chatDel } = useParams();
+  const { chatId } = useParams();
   const [chats, setChats] = useState(initialChats);
-
-  if (chatDel === "del"){
-    let delChatId = Object.keys(chats).find(el => el === chatId);
-    delete chats[delChatId];
-   
-  }
 
   const handleSendMessage = useCallback(
     (newMessage) => {
@@ -79,16 +64,7 @@ function Chats() {
     return () => clearTimeout(timeout);
   }, [chats]);
 
-  const verifyChatId = (chatId) => {
-    for (let i in chats) {      
-        if (i === chatId) {
-          return true;
-        }    
-    }
-          return false;
-  }
-
-  const addChat = () => {
+   const addChat = () => {
     const newChatId = Object.keys(chats).length + 1;
     setChats({
       ...chats,
@@ -96,11 +72,19 @@ function Chats() {
     });
   }
 
+  const remChat = (chatId) => {
+    const tmpChat = {...chats};
+    let delChatId = Object.keys(tmpChat).find(el => el === chatId);
+    delete tmpChat[delChatId];
+
+    setChats({...tmpChat});
+  }
+
   return (
     <div className="root">
       <Button onClick={addChat}>Add Chat</Button>
-      <ChatList chats={chats} />
-      {!!chatId && verifyChatId(chatId) && (
+      <ChatList chats={chats} remChat={remChat} />
+      {!!chats[chatId] && (
         <div>
           <MessageList messages={chats[chatId].messages} />
           <Form onSendMessage={handleSendMessage} />
