@@ -1,0 +1,4 @@
+export const SEND_MESSAGE = "MESSAGE::SEND_MEESSAGE";
+export const CREATE_KEY = "MESSAGE::CREATE_KEY";
+export const REM_KEY = "MESSAGE::REM_KEY";
+
