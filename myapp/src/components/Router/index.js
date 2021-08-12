@@ -18,6 +18,7 @@ export const Router = () => {
         <Route path="/profile"> <Profile /></Route>
         <Route path="/chats/:chatId?/:chatDel?"><Chats /></Route>
         <Route path="/chats/:chatId?"><Chats /></Route>
+        <Route path="/nochat"><div> No such chat</div></Route>
         <Route exact path="/" ><HomePage /></Route>
         <Route path="*">
           <h2>404</h2>

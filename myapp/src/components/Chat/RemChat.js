@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { remChat } from "../../store/chats/actions";
 import { remKey } from "../../store/message/actions";
@@ -6,6 +7,7 @@ import { Button } from "@material-ui/core";
 
 export const RemChat = ({ id }) => {
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,6 +17,7 @@ export const RemChat = ({ id }) => {
     }
     dispatch(remKey(id));
     dispatch(remChat(id));
+    history.replace('/chats');
   };
 
   return (

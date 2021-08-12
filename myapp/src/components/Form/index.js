@@ -1,13 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { AUTHORS } from '../../constants';
+import { useInput } from '../../utils/useInput';
 
 export const Form = ({ onSendMessage }) => {
-  const [value, setValue] = useState('');
   const inputRef = useRef();
 
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  }
+  const { value, handleChange, reset } = useInput('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +15,7 @@ export const Form = ({ onSendMessage }) => {
       id: Date.now(),
       text: value,
     });
-    setValue('');
+    reset();
   }
 
   useEffect(() => {

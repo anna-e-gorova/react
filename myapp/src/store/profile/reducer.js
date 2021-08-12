@@ -2,7 +2,7 @@ import { PROFILE_TOGGLE_SHOW, PROFILE_DROP_NAME, PROFILE_SET_NAME } from "./acti
 
 const initialState = {
   show: false,
-  name: 'No name'
+  name: 'Me'
 };
 
 export const profileReducer = (state = initialState, action) => {

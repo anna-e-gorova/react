@@ -10,7 +10,7 @@ import { RemChat } from "./RemChat";
 
 export const Chat = ({ name, id }) => (
 
-<ListItem alignItems="flex-start" id={id} >
+<ListItem alignItems="flex-start" >
   <ListItemAvatar>
     <Avatar />
   </ListItemAvatar>
