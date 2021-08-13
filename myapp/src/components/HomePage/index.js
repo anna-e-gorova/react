@@ -12,6 +12,9 @@ function HomePage() {
         <li>
           <Link to="/profile">PROFILE</Link>
         </li>
+        <li>
+            <Link to="/news">NEWS</Link>
+        </li>
       </ul>
     </div>
   );

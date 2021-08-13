@@ -5,7 +5,7 @@ import { Form } from "../Form";
 import { ChatList } from "../ChatList";
 import { useParams, useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { sendMessage } from "../../store/message/actions";
+import { sendMessageWithReply } from "../../store/message/actions";
 import { selectChats } from "../../store/chats/selectors";
 import { selectMessages } from "../../store/message/selectors";
 
@@ -20,7 +20,7 @@ function Chats() {
 
   const handleSendMessage = useCallback(
     (newMessage) => {
-      dispatch(sendMessage(chatId, newMessage));
+      dispatch(sendMessageWithReply(chatId, newMessage));
     },
     [chatId]
   );

@@ -4,6 +4,7 @@ import Profile from "../Profile";
 import Chats from '../Chats';
 import { ThemeContext } from "../../utils/ThemeContext";
 import HomePage from '../HomePage';
+import { News } from "../News";
 
 export const Router = () => {
   const [bgColor, setBgColor] = useState("white");
@@ -16,6 +17,7 @@ export const Router = () => {
       <Link to="/" >HOME</Link>
       <Switch>
         <Route path="/profile"> <Profile /></Route>
+        <Route path="/news"><News /></Route>
         <Route path="/chats/:chatId?/:chatDel?"><Chats /></Route>
         <Route path="/chats/:chatId?"><Chats /></Route>
         <Route path="/nochat"><div> No such chat</div></Route>

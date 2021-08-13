@@ -33,7 +33,7 @@ export const sendMessageWithReply = (chatId, message) => (dispatch) => {
 
   timeout = setTimeout(() => {
     dispatch(
-      sendMessage(chatId, { author: AUTHORS.robot, text: "Message from thunk" })
+      sendMessage(chatId, { author: AUTHORS.robot, text: "Message from thunk", id: Date.now() })
     );
   }, 1000);
 };
