@@ -1,8 +1,10 @@
-import { PROFILE_TOGGLE_SHOW, PROFILE_DROP_NAME, PROFILE_SET_NAME } from "./actionTypes";
+import { PROFILE_TOGGLE_SHOW, PROFILE_DROP_NAME, PROFILE_SET_NAME, SET_AUTH, SET_ERROR, } from "./actionTypes";
 
 const initialState = {
   show: false,
-  name: 'Me'
+  name: 'Me',
+  authorized: false,
+  error: null,
 };
 
 export const profileReducer = (state = initialState, action) => {
@@ -23,6 +25,19 @@ export const profileReducer = (state = initialState, action) => {
       return {
         ...state,
         name: action.payload,
+      };
+    }
+    case SET_AUTH: {
+      return {
+        ...state,
+        authorized: action.payload,
+        error: null,
+      };
+    }
+    case SET_ERROR: {
+      return {
+        ...state,
+        error: action.payload,
       };
     }
     default:
